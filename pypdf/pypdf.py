@@ -45,9 +45,8 @@ class PyPdf:
 
     def delete(self, pdf_path: str, start_pn: int, end_pn: int) -> None:
         doc = fitz.open(pdf_path)
-        doc.delete_pages(list(range(start_pn,end_pn+1)))
+        doc.delete_pages(list(range(start_pn-1,end_pn)))
         doc.saveIncr()
-
 
 def main():
 

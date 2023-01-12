@@ -1,5 +1,6 @@
 import fire
 import fitz
+import os
 
 
 def toc2file(toc: list, file_path: str) -> None:
@@ -25,18 +26,25 @@ def file2toc(file_path: str) -> list:
 
 
 class Toc:
-    def read(self, pdf_path: str) -> None:
+    def read(self, pdf_path: str, editor: str = None) -> None:
         doc = fitz.open(pdf_path)
         toc = doc.get_toc()
-        toc2file(toc, pdf_path.replace(".pdf", ".toc"))
+        toc_path = pdf_path.replace(".pdf", ".toc")
+        toc2file(toc, toc_path)
+        if editor:
+            os.system(f"{editor} {toc_path}")
 
     def write(self, pdf_path: str, bias: int = 0) -> None:
-        doc = fitz.open(pdf_path)
-        toc = file2toc(pdf_path.replace(".pdf", ".toc"))
-        for item in toc:
-            item[-1] += bias
-        doc.set_toc(toc)
-        doc.saveIncr()
+        toc_path = pdf_path.replace(".pdf", ".toc")
+        if os.path.exists(toc_path):
+            doc = fitz.open(pdf_path)
+            toc = file2toc(toc_path)
+            for item in toc:
+                item[-1] += bias
+            doc.set_toc(toc)
+            doc.saveIncr()
+        else:
+            print("the toc file doesn't exist.")
 
 
 class PyPdf:

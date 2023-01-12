@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pypdf"
-version = "0.1.1"
+version = "0.1.2"
 description = ""
 authors = ["aoout <wuz66280@gmail.com>"]
 readme = "README.md"

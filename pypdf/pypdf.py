@@ -30,7 +30,7 @@ class Toc:
         toc = doc.get_toc()
         toc2file(toc, pdf_path.replace(".pdf", ".toc"))
 
-    def write(self, pdf_path: str, bias: int) -> None:
+    def write(self, pdf_path: str, bias: int = 0) -> None:
         doc = fitz.open(pdf_path)
         toc = file2toc(pdf_path.replace(".pdf", ".toc"))
         for item in toc:
@@ -45,8 +45,16 @@ class PyPdf:
 
     def delete(self, pdf_path: str, start_pn: int, end_pn: int) -> None:
         doc = fitz.open(pdf_path)
-        doc.delete_pages(list(range(start_pn-1,end_pn)))
+        doc.delete_pages(list(range(start_pn-1, end_pn)))
         doc.saveIncr()
+
+    def join(self, *pdfs_path: str) -> None:
+        doc = fitz.open(pdfs_path[0])
+        for i in pdfs_path[1:]:
+            item = fitz.open(i)
+            doc.insert_pdf(item)
+        doc.saveIncr()
+
 
 def main():
 

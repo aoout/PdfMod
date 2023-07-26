@@ -4,7 +4,7 @@ import os
 
 
 def toc2file(toc: list, file_path: str) -> None:
-    with open(file_path, "w") as f:
+    with open(file_path, "w", encoding='utf-8') as f:
         for item in toc:
             item[0] = str(item[0])
             item[-1] = str(item[-1])
@@ -13,7 +13,7 @@ def toc2file(toc: list, file_path: str) -> None:
 
 def file2toc(file_path: str) -> list:
     toc = []
-    with open(file_path) as f:
+    with open(file_path,encoding='utf-8') as f:
         for line in f:
             items = line.split(" ")
             lvl = int(items[0])

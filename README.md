@@ -4,6 +4,11 @@
 
 PyPdf is a powerful tool for manipulating PDF files. It allows you to read and write the table of contents, delete pages, and merge PDF files. With PyPdf, you can easily manage and modify your PDF files to suit your needs.
 
+## 📦 Dependencies
+
+> [!NOTE]
+> PyPdf requires Python 3.7 or higher.
+
 ## 💻 Installation
 
 To install PyPdf, run the following command in your terminal:

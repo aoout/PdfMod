@@ -2,7 +2,7 @@
 
 ## 🌟 Overview
 
-PyPdf is a powerful tool for manipulating PDF files. It allows you to read and write the table of contents, delete pages, and merge PDF files. With PyPdf, you can easily manage and modify your PDF files to suit your needs.
+PyPdf is a tool for manipulating PDF files, utilizing the [pymupdf](https://github.com/pymupdf/PyMuPDF) library. It enables reading and writing the table of contents, deleting pages, and merging PDF files. PyPdf facilitates the management and modification of PDF files according to your requirements.
 
 ## 📦 Dependencies
 

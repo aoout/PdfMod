@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pypdf"
+name = "pdfmod"
 version = "0.1.4"
 description = "A tool for PDF file manipulation."
 authors = ["aoout <wuz66280@gmail.com>"]
@@ -14,7 +14,7 @@ pymupdf = "^1.21.1"
 autopep8 = "^2.0.0"
 
 [tool.poetry.scripts]
-pypdf = "pypdf:main"
+pdfmod = "pdfmod:main"
 
 [[tool.poetry.source]]
 name = "ali"

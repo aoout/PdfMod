@@ -78,10 +78,10 @@ class Toc:
             print("the toc file doesn't exist.")
 
 
-class PyPdf:
+class PdfMod:
     def __init__(self) -> None:
         """
-        Initializes the PyPdf class.
+        Initializes the PdfMod class.
         """
         self.toc = Toc()
 
@@ -132,4 +132,4 @@ class PyPdf:
 
 def main():
 
-    fire.Fire(PyPdf)
+    fire.Fire(PdfMod)

@@ -111,6 +111,24 @@ class PyPdf:
             doc.insert_pdf(item)
         doc.saveIncr()
 
+    def extract(self, pdf_path: str, start_pn: int, end_pn: int) -> None:
+        """
+        Extracts pages from a PDF file and saves them as a new PDF.
+        
+        Args:
+            pdf_path (str): The path to the original PDF file.
+            start_pn (int): The starting page number.
+            end_pn (int): The ending page number.
+        """
+        doc = fitz.open(pdf_path)
+        pages = [doc[i] for i in range(start_pn-1, end_pn)]
+        new_doc = fitz.open()
+        for page in pages:
+            new_doc.new_page(width=page.rect.width, height=page.rect.height)
+            new_doc[-1].show_pdf_page(page.rect, doc, page.number)
+        output_path = f"{pdf_path.replace('.pdf', '')}-{start_pn}-{end_pn}.pdf"
+        new_doc.save(output_path)
+
 
 def main():
 
